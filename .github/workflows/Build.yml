@@ -12,7 +12,7 @@ jobs:
    runs-on: ubuntu-latest
    defaults:
      run:
-       working-directory: ./SONARCLOUD  # Updated directory name
+       working-directory: ./sonarcloud # Updated directory name
    steps:
      - uses: actions/checkout@v2
        with:
@@ -23,7 +23,7 @@ jobs:
        run: npm test src/
      - name: SonarCloud Scan
        with:
-         projectBaseDir: ./SONARCLOUD  # Updated directory name
+         projectBaseDir: ./sonarcloud  # Updated directory name
        uses: SonarSource/sonarcloud-github-action@master
        env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
@@ -45,7 +45,7 @@ jobs:
        run: npm test src/
      - name: SonarCloud Scan
        with:
-         projectBaseDir: ./SONARCLOUD  # Updated directory name
+         projectBaseDir: ./sonarcloud # Updated directory name
          args: >
            -Dsonar.branch.name=main
        uses: SonarSource/sonarcloud-github-action@master
